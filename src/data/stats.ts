@@ -1,4 +1,4 @@
-export const statsData = [
+export const stats = [
   {
     value: 500,
     suffix: "+",
