@@ -1,60 +1,61 @@
-import { GraduationCap, Users, Lightbulb } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
+import { siteData } from "@/data/site";
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="min-h-screen bg-[#0d1117] text-white flex items-center"
-    >
-      <div className="max-w-7xl mx-auto px-6 py-24">
-        <p className="uppercase tracking-[0.4em] text-blue-400 font-semibold mb-3">
-          About Pragyan
-        </p>
+    <section id="about" className="bg-[#0B1120] py-28 text-white">
+      <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
+        {/* Left Side */}
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="mb-4 font-semibold uppercase tracking-[0.4em] text-blue-400">
+            {siteData.about.badge}
+          </p>
 
-        <h2 className="text-5xl font-bold mb-6">
-          Empowering Future Innovators
-        </h2>
+          <h2 className="mb-6 text-5xl font-bold leading-tight">
+            {siteData.about.title}
+          </h2>
 
-        <p className="text-gray-400 text-lg max-w-3xl leading-8 mb-14">
-          Pragyan is the official Information Technology Department forum of JD
-          College of Engineering and Management. Our goal is to help students
-          grow through technical events, workshops, hackathons, leadership
-          opportunities and real-world projects.
-        </p>
+          <p className="mb-10 text-lg leading-8 text-gray-400">
+            {siteData.about.description}
+          </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="rounded-2xl bg-[#161b22] p-8 border border-gray-800 hover:border-blue-500 transition">
-            <GraduationCap className="w-10 h-10 text-blue-500 mb-5" />
-            <h3 className="text-2xl font-semibold mb-3">Learning</h3>
+          <div className="grid gap-5">
+            {siteData.about.features.map((feature) => (
+              <div key={feature} className="flex items-center gap-4">
+                <CheckCircle2 className="text-blue-500" />
 
-            <p className="text-gray-400">
-              Hands-on workshops, seminars and technical sessions to build
-              practical skills.
-            </p>
+                <span className="text-lg">{feature}</span>
+              </div>
+            ))}
           </div>
+        </motion.div>
 
-          <div className="rounded-2xl bg-[#161b22] p-8 border border-gray-800 hover:border-blue-500 transition">
-            <Users className="w-10 h-10 text-blue-500 mb-5" />
+        {/* Right Side */}
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="flex justify-center"
+        >
+          <div className="flex h-[500px] w-full max-w-md items-center justify-center rounded-3xl border border-white/10 bg-gradient-to-br from-blue-600/20 to-cyan-500/10 text-center">
+            <div>
+              <p className="text-lg text-gray-400">Future College Image</p>
 
-            <h3 className="text-2xl font-semibold mb-3">Community</h3>
-
-            <p className="text-gray-400">
-              Bringing together students, mentors and alumni to create lasting
-              connections.
-            </p>
+              <p className="mt-2 text-sm text-gray-500">
+                Replace with your department photo later
+              </p>
+            </div>
           </div>
-
-          <div className="rounded-2xl bg-[#161b22] p-8 border border-gray-800 hover:border-blue-500 transition">
-            <Lightbulb className="w-10 h-10 text-blue-500 mb-5" />
-
-            <h3 className="text-2xl font-semibold mb-3">Innovation</h3>
-
-            <p className="text-gray-400">
-              Encouraging creative thinking through projects, competitions and
-              collaborative development.
-            </p>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
