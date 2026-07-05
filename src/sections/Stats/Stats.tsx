@@ -1,5 +1,5 @@
 "use client";
-
+import Counter from "@/components/ui/Counter";
 import { motion } from "framer-motion";
 import { stats } from "@/data/stats";
 
@@ -27,8 +27,7 @@ export default function Stats() {
               className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-blue-500"
             >
               <h3 className="mb-3 text-5xl font-extrabold text-blue-400">
-                {item.value}
-                {item.suffix}
+                <Counter end={item.value} suffix={item.suffix} />
               </h3>
 
               <p className="text-lg text-gray-300">{item.label}</p>
