@@ -1,0 +1,9 @@
+export { default as Hero } from "./Hero/Hero";
+export { default as Stats } from "./Stats/Stats";
+export { default as About } from "./About/About";
+export { default as Committees } from "./Committees/Committees";
+export { default as Events } from "./Events/Events";
+export { default as Projects } from "./Projects/Projects";
+export { default as Gallery } from "./Gallery/Gallery";
+export { default as Achievements } from "./Achievements/Achievements";
+export { default as Contact } from "./Contact/Contact";
